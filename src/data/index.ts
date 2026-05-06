@@ -1,1 +1,1 @@
-export { portfolioContent } from "./portfolio";
+export { featuredProjects, portfolioContent } from "./portfolio";

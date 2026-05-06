@@ -1,63 +1,50 @@
-import { useEffect, useState } from "react";
-
 type Slide = {
   id: string;
   title: string;
-  excerpt?: string;
+  description?: string;
+  image?: string;
 };
 
 export function Carousel({ slides }: { slides: Slide[] }) {
-  const [index, setIndex] = useState(0);
-
-  useEffect(() => {
-    if (!slides || slides.length <= 1) return;
-    const t = setInterval(() => setIndex((i) => (i + 1) % slides.length), 4500);
-    return () => clearInterval(t);
-  }, [slides]);
-
   if (!slides || slides.length === 0) return null;
 
   return (
-    <div className="relative w-full overflow-hidden rounded-2xl">
-      <div
-        className="flex transition-transform duration-700"
-        style={{ transform: `translateX(-${index * 100}%)` }}
-      >
-        {slides.map((s) => (
-          <div key={s.id} className="w-full flex-shrink-0 px-4 py-6">
-            <div className="rounded-2xl border border-sky-100 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-950">
-              <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
-                {s.title}
-              </h3>
-              {s.excerpt && (
-                <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
-                  {s.excerpt}
-                </p>
-              )}
-            </div>
-          </div>
-        ))}
-      </div>
+    <div className="w-full">
+      <div className="flex justify-end gap-4 items-stretch">
+        {slides.map((slide) => (
+          <article
+            key={slide.id}
+            className="group relative min-h-[460px] flex-none w-[100px] lg:w-[160px] overflow-hidden rounded-3xl border border-sky-100 bg-white p-4 shadow-sm transition-all duration-400 ease-out hover:w-[680px] hover:-translate-y-1 hover:shadow-[0_28px_80px_-40px_rgba(2,132,199,0.35)] dark:border-slate-700 dark:bg-slate-950 origin-right"
+          >
+            <div className="flex h-full flex-col justify-between">
+              <div className="flex items-center gap-4">
+                <div className="w-20 h-16 rounded-md overflow-hidden flex-shrink-0">
+                  {slide.image ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={slide.image}
+                      alt={slide.title}
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <div className="w-full h-full bg-slate-200 dark:bg-slate-800" />
+                  )}
+                </div>
+                <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
+                  {slide.title}
+                </h3>
+              </div>
 
-      <div className="pointer-events-none absolute inset-0 flex items-center justify-between px-3">
-        <button
-          type="button"
-          onClick={() =>
-            setIndex((i) => (i - 1 + slides.length) % slides.length)
-          }
-          className="pointer-events-auto rounded-full bg-white/80 p-2 text-sm shadow dark:bg-slate-800/80"
-          aria-label="Anterior"
-        >
-          ‹
-        </button>
-        <button
-          type="button"
-          onClick={() => setIndex((i) => (i + 1) % slides.length)}
-          className="pointer-events-auto rounded-full bg-white/80 p-2 text-sm shadow dark:bg-slate-800/80"
-          aria-label="Próximo"
-        >
-          ›
-        </button>
+              <div className="mt-3 overflow-hidden transition-all duration-300 max-h-0 opacity-0 group-hover:max-h-[420px] group-hover:opacity-100">
+                {slide.description && (
+                  <p className="text-sm leading-7 text-slate-600 dark:text-slate-300">
+                    {slide.description}
+                  </p>
+                )}
+              </div>
+            </div>
+          </article>
+        ))}
       </div>
     </div>
   );

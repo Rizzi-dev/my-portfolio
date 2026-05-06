@@ -18,6 +18,7 @@ export interface PortfolioProfile {
   name: string;
   title: string;
   summary: string;
+  photo?: string;
   highlights: PortfolioHighlight[];
   links: PortfolioLink[];
 }
@@ -27,6 +28,13 @@ export interface PortfolioSection {
   eyebrow: string;
   title: string;
   body: string;
+}
+
+export interface PortfolioProject {
+  id: string;
+  title: string;
+  description: string;
+  image?: string;
 }
 
 export interface PortfolioContent {

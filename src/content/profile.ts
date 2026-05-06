@@ -5,6 +5,7 @@ export const profileContent: PortfolioProfile = {
   title: "Desenvolvedor Full Stack",
   summary:
     "Base inicial do portfólio para centralizar dados do currículo, projetos e contatos em um único lugar.",
+  photo: "/profile.jpg",
   highlights: [
     { label: "Foco atual", value: "Front-end com React" },
     { label: "Stack", value: "Vite, Tailwind e shadcn" },
