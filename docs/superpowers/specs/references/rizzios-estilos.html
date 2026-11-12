@@ -1,0 +1,238 @@
+<title>RizziOS Estilos</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=IBM+Plex+Mono:wght@400;600&family=Inter:wght@400;500;600&family=VT323&family=Pixelify+Sans:wght@400;600&display=swap">
+<style>
+/* Layout: three full-width "screens" stacked, each a live desktop preview with a notes column, then a recommendation. */
+:root {
+  --bg: #f3f4f7; --surface: #ffffff; --fg: #171a24; --muted: #5a6072; --line: #d9dce5;
+  --accent: #3448d6; --accent-soft: #e6e9fb; --good: #1f7a4d; --warn: #9a5b00;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --bg: #11131a; --surface: #191c26; --fg: #eceef4; --muted: #a3a9ba; --line: #2c3040; --accent: #8e9bff; --accent-soft: #23284a; --good: #6fd3a0; --warn: #f0b45a; color-scheme: dark; }
+}
+:root[data-theme="dark"] { --bg: #11131a; --surface: #191c26; --fg: #eceef4; --muted: #a3a9ba; --line: #2c3040; --accent: #8e9bff; --accent-soft: #23284a; --good: #6fd3a0; --warn: #f0b45a; color-scheme: dark; }
+
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 17px; line-height: 1.6; }
+.wrap { max-width: 1160px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 48px 72px; display: grid; gap: 56px; }
+a { color: var(--accent); }
+.kicker { font-family: var(--font-mono); font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font-family: var(--font-display); font-weight: 800; font-size: clamp(34px, 5vw, 54px); line-height: 1.05; margin: 0; letter-spacing: -.02em; text-wrap: balance; }
+h2 { font-family: var(--font-display); font-weight: 800; font-size: clamp(26px, 3vw, 34px); line-height: 1.1; margin: 0; text-wrap: balance; }
+p { margin: 0; }
+.intro { display: grid; gap: 14px; max-width: 68ch; }
+.lede { font-size: 19px; color: var(--muted); }
+
+.plate { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 32px; align-items: start; border-top: 2px solid var(--fg); padding-top: 24px; }
+@media (max-width: 880px) { .plate { grid-template-columns: minmax(0, 1fr); } }
+.plate-head { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 16px; }
+.tag { font-family: var(--font-mono); font-size: 13px; color: var(--accent); background: var(--accent-soft); padding: 2px 8px; border-radius: 3px; }
+.tag.rec { color: var(--good); }
+figure { margin: 0; min-width: 0; }
+figcaption { font-size: 14px; color: var(--muted); margin-top: 8px; }
+.notes { display: grid; gap: 16px; min-width: 0; }
+.notes ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px; }
+.pro::before { content: "+ "; color: var(--good); font-weight: 700; }
+.con::before { content: "– "; color: var(--warn); font-weight: 700; }
+.label { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+
+.screen { position: relative; height: 400px; border-radius: 8px; overflow: hidden; isolation: isolate; }
+
+/* ===== A — Moderno ===== */
+.sA { background: radial-gradient(120% 90% at 15% 10%, #ff9a62 0%, transparent 55%), radial-gradient(90% 80% at 90% 30%, #6a5cff 0%, transparent 60%), radial-gradient(100% 90% at 50% 100%, #12b5a6 0%, transparent 60%), #1d1b3a; font-family: "Inter", system-ui, sans-serif; color: #111; }
+.sA .menubar { position: absolute; inset: 0 0 auto; height: 26px; background: rgba(255,255,255,.55); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); display: flex; align-items: center; gap: 16px; padding: 0 14px; font-size: 13px; }
+.sA .menubar b { font-weight: 600; }
+.sA .menubar .right { margin-left: auto; }
+.sA .win { position: absolute; left: 50%; top: 52px; transform: translateX(-50%); width: min(380px, calc(100% - 32px)); background: rgba(255,255,255,.82); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border-radius: 12px; box-shadow: 0 20px 50px rgba(0,0,0,.35), 0 0 0 1px rgba(255,255,255,.5) inset; overflow: hidden; }
+.sA .bar { display: flex; align-items: center; gap: 8px; padding: 10px 12px; font-size: 13px; font-weight: 600; color: #333; }
+.sA .bar .lights { display: flex; gap: 7px; }
+.sA .bar .lights i { width: 12px; height: 12px; border-radius: 50%; display: block; }
+.sA .bar .lights i:nth-child(1) { background: #ff5f57; } .sA .bar .lights i:nth-child(2) { background: #febc2e; } .sA .bar .lights i:nth-child(3) { background: #28c840; }
+.sA .bar span { flex: 1; text-align: center; margin-right: 50px; }
+.sA .body { padding: 4px 18px 18px; display: grid; gap: 8px; font-size: 14px; line-height: 1.5; }
+.sA .body h3 { margin: 0; font-size: 20px; font-weight: 600; letter-spacing: -.01em; }
+.sA .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.sA .chips span { background: #fff; border-radius: 999px; padding: 2px 10px; font-size: 12px; box-shadow: 0 0 0 1px #0000001a; }
+.sA .dock { position: absolute; left: 50%; bottom: 10px; transform: translateX(-50%); display: flex; gap: 10px; padding: 8px 10px; background: rgba(255,255,255,.35); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-radius: 18px; box-shadow: 0 0 0 1px rgba(255,255,255,.4) inset; }
+.sA .dock i { width: 40px; height: 40px; border-radius: 10px; display: grid; place-items: center; font-style: normal; font-weight: 700; font-size: 12px; color: #fff; }
+.sA .dock i:nth-child(1) { background: linear-gradient(160deg,#ffcf3f,#ff8a00); color: #3a1d00; }
+.sA .dock i:nth-child(2) { background: linear-gradient(160deg,#5b8cff,#3448d6); }
+.sA .dock i:nth-child(3) { background: linear-gradient(160deg,#2fd3a8,#0f8f74); }
+.sA .dock i:nth-child(4) { background: linear-gradient(160deg,#ff6fb5,#c2307a); }
+.sA .dock i:nth-child(5) { background: linear-gradient(160deg,#4a4a55,#1b1b22); }
+
+/* ===== B — Nostálgico ===== */
+.sB { background: #0f7c7a; font-family: "Pixelify Sans", "VT323", ui-monospace, monospace; color: #000; }
+.sB .icons { position: absolute; left: 12px; top: 12px; display: grid; gap: 14px; }
+.sB .icon { display: grid; justify-items: center; gap: 3px; width: 74px; color: #fff; font-size: 13px; text-align: center; }
+.sB .icon i { width: 34px; height: 34px; display: block; border: 1px solid #000; box-shadow: inset -2px -2px #808080, inset 2px 2px #fff; }
+.sB .icon:nth-child(1) i { background: #ffd23f; } .sB .icon:nth-child(2) i { background: #fff; } .sB .icon:nth-child(3) i { background: #7fe0ff; } .sB .icon:nth-child(4) i { background: #c0c0c0; }
+.bevel { background: #c0c0c0; box-shadow: inset -1px -1px #0a0a0a, inset 1px 1px #fff, inset -2px -2px #808080, inset 2px 2px #dfdfdf; }
+.sB .win { position: absolute; left: 104px; right: 16px; top: 22px; max-width: 380px; padding: 3px; }
+.sB .titlebar { background: linear-gradient(90deg, #000080, #1084d0); color: #fff; display: flex; align-items: center; justify-content: space-between; padding: 2px 3px 2px 6px; font-size: 14px; font-weight: 600; }
+.sB .titlebar .btns { display: flex; gap: 2px; }
+.sB .titlebar .btns span { width: 16px; height: 14px; color: #000; font-size: 10px; line-height: 14px; text-align: center; }
+.sB .menu { display: flex; gap: 12px; padding: 2px 6px; font-size: 13px; }
+.sB .content { background: #fff; margin: 2px; padding: 10px; font-family: "Atkinson Hyperlegible", system-ui, sans-serif; font-size: 14px; line-height: 1.45; box-shadow: inset 1px 1px #808080, inset -1px -1px #fff, inset 2px 2px #0a0a0a; display: grid; gap: 6px; }
+.sB .taskbar { position: absolute; inset: auto 0 0 0; height: 32px; display: flex; align-items: center; gap: 4px; padding: 0 3px; }
+.sB .start, .sB .task { padding: 2px 8px; font-size: 14px; font-weight: 600; }
+.sB .task { font-weight: 400; box-shadow: inset 1px 1px #0a0a0a, inset -1px -1px #fff, inset 2px 2px #808080; background: #d4d0c8; }
+.sB .clock { margin-left: auto; padding: 2px 8px; font-size: 13px; box-shadow: inset 1px 1px #808080, inset -1px -1px #fff; }
+@media (max-width: 560px) { .sB .icons { grid-template-columns: repeat(4, 74px); } .sB .win { left: 12px; right: 12px; top: 96px; } }
+
+/* ===== C — Híbrido RizziOS ===== */
+.sC { background: #f1ede4; font-family: "Inter", system-ui, sans-serif; color: #15172a; }
+.sC::before { content: ""; position: absolute; inset: 0; background-image: linear-gradient(#15172a0d 1px, transparent 1px), linear-gradient(90deg, #15172a0d 1px, transparent 1px); background-size: 24px 24px; z-index: -1; }
+.sC .menubar { position: absolute; inset: 0 0 auto; height: 28px; background: #15172a; color: #f1ede4; display: flex; align-items: center; gap: 14px; padding: 0 12px; font-family: "VT323", ui-monospace, monospace; font-size: 18px; }
+.sC .menubar .logo { background: #ffd23f; color: #15172a; padding: 0 6px; }
+.sC .menubar .right { margin-left: auto; }
+.sC .win { position: absolute; left: 50%; top: 50px; transform: translateX(-50%); width: min(380px, calc(100% - 32px)); background: #fff; border: 2px solid #15172a; border-radius: 10px; box-shadow: 6px 6px 0 #15172a; overflow: hidden; }
+.sC .bar { display: flex; align-items: center; gap: 8px; padding: 6px 10px; border-bottom: 2px solid #15172a; background: #ffd23f; font-family: "VT323", ui-monospace, monospace; font-size: 19px; }
+.sC .bar .dots { display: flex; gap: 6px; }
+.sC .bar .dots i { width: 12px; height: 12px; border-radius: 50%; border: 2px solid #15172a; display: block; background: #fff; }
+.sC .body { padding: 14px 16px 16px; display: grid; gap: 8px; font-size: 14px; line-height: 1.5; }
+.sC .body h3 { margin: 0; font-size: 20px; font-weight: 600; letter-spacing: -.01em; }
+.sC .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.sC .chips span { border: 2px solid #15172a; border-radius: 6px; padding: 0 8px; font-size: 12px; font-weight: 600; }
+.sC .dock { position: absolute; left: 50%; bottom: 12px; transform: translateX(-50%); display: flex; gap: 8px; padding: 8px; background: #fff; border: 2px solid #15172a; border-radius: 14px; box-shadow: 4px 4px 0 #15172a; }
+.sC .dock i { width: 38px; height: 38px; border: 2px solid #15172a; border-radius: 9px; display: grid; place-items: center; font-style: normal; font-family: "VT323", ui-monospace, monospace; font-size: 17px; }
+.sC .dock i:nth-child(1) { background: #ffd23f; } .sC .dock i:nth-child(2) { background: #7fe0ff; } .sC .dock i:nth-child(3) { background: #9df0b8; } .sC .dock i:nth-child(4) { background: #ff9fcb; } .sC .dock i:nth-child(5) { background: #15172a; color: #f1ede4; }
+
+/* phone strip */
+.phones { display: flex; gap: 16px; flex-wrap: wrap; }
+.phone { width: 150px; height: 270px; border-radius: 26px; border: 6px solid #15172a; position: relative; overflow: hidden; padding: 26px 12px 12px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; align-content: start; }
+.phone i { aspect-ratio: 1; display: block; }
+.phone.a { background: linear-gradient(160deg, #ff9a62, #6a5cff 60%, #12b5a6); }
+.phone.a i { border-radius: 10px; background: rgba(255,255,255,.75); }
+.phone.b { background: #0f7c7a; }
+.phone.b i { background: #c0c0c0; box-shadow: inset -2px -2px #808080, inset 2px 2px #fff; }
+.phone.c { background: #f1ede4; }
+.phone.c i { border: 2px solid #15172a; border-radius: 8px; background: #ffd23f; }
+.phone.c i:nth-child(3n+2) { background: #7fe0ff; } .phone.c i:nth-child(3n) { background: #ff9fcb; }
+
+.verdict { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 22px; display: grid; gap: 12px; max-width: 76ch; }
+.verdict h2 { font-size: 26px; }
+</style>
+
+<div class="wrap">
+  <header class="intro">
+    <p class="kicker">rizzi.dev · área de trabalho · escolha de estilo</p>
+    <h1>Moderno, nostálgico ou um sistema só seu</h1>
+    <p class="lede">As três prévias mostram a mesma tela: a janela "Sobre" aberta, com o seu conteúdo. Muda só a época do sistema. Nenhuma usa logo ou marca da Apple ou da Microsoft; elas lembram o estilo, mas o sistema é seu.</p>
+  </header>
+
+  <section class="plate" aria-labelledby="a">
+    <div class="plate-head"><h2 id="a">A · Moderno</h2><span class="tag">inspirado no macOS</span></div>
+    <figure>
+      <div class="screen sA" role="img" aria-label="Prévia moderna: papel de parede em degradê colorido, barra de menu translúcida, janela de vidro fosco com três bolinhas coloridas e o texto Sobre Gabriel Rizzi, e um dock com cinco ícones arredondados.">
+        <div class="menubar"><b>RizziOS</b><span>Arquivo</span><span>Projetos</span><span>Contato</span><span class="right">qua 11 nov · 14:32</span></div>
+        <div class="win">
+          <div class="bar"><div class="lights"><i></i><i></i><i></i></div><span>Sobre</span></div>
+          <div class="body">
+            <h3>Gabriel Rizzi</h3>
+            <p>CEO do Fervo. Fullstack &amp; Mobile, formado em Sistemas de Informação pela UTFPR.</p>
+            <div class="chips"><span>React</span><span>React Native</span><span>Vue</span><span>Node</span><span>WCAG</span></div>
+          </div>
+        </div>
+        <div class="dock"><i>F</i><i>Sobre</i><i>Stack</i><i>WCAG</i><i>@</i></div>
+      </div>
+      <figcaption>Vidro fosco, cantos arredondados, dock com ícones e animações suaves.</figcaption>
+    </figure>
+    <div class="notes">
+      <p class="label">Prós e riscos</p>
+      <ul>
+        <li class="pro">Atual e elegante, combina com o cargo de CEO</li>
+        <li class="pro">No celular vira uma tela inicial de smartphone muito natural</li>
+        <li class="con">Muita gente já fez portfólio "estilo macOS"; corre o risco de parecer cópia</li>
+        <li class="con">Vidro fosco exige cuidado com contraste de texto (WCAG)</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="plate" aria-labelledby="b">
+    <div class="plate-head"><h2 id="b">B · Nostálgico</h2><span class="tag">inspirado no Windows 95/98</span></div>
+    <figure>
+      <div class="screen sB" role="img" aria-label="Prévia nostálgica: fundo verde-azulado, ícones à esquerda, janela cinza com barra de título azul escrita sobre.txt, conteúdo sobre Gabriel Rizzi, e barra de tarefas cinza com botão Iniciar e relógio.">
+        <div class="icons">
+          <div class="icon"><i></i>fervo.exe</div>
+          <div class="icon"><i></i>sobre.txt</div>
+          <div class="icon"><i></i>stack</div>
+          <div class="icon"><i></i>Lixeira</div>
+        </div>
+        <div class="win bevel">
+          <div class="titlebar"><span>sobre.txt - Bloco de notas</span><div class="btns"><span class="bevel">_</span><span class="bevel">□</span><span class="bevel">×</span></div></div>
+          <div class="menu"><span>Arquivo</span><span>Editar</span><span>Ajuda</span></div>
+          <div class="content">
+            <p><b>Gabriel Rizzi</b></p>
+            <p>CEO do Fervo. Fullstack &amp; Mobile com React, React Native, Vue e Node. Estudo WCAG para que todo mundo consiga usar o que eu construo.</p>
+          </div>
+        </div>
+        <div class="taskbar bevel"><span class="start bevel">Iniciar</span><span class="task">sobre.txt</span><span class="clock">14:32</span></div>
+      </div>
+      <figcaption>Botões em relevo, barra azul, "Iniciar", lixeira e easter eggs nostálgicos.</figcaption>
+    </figure>
+    <div class="notes">
+      <p class="label">Prós e riscos</p>
+      <ul>
+        <li class="pro">Muito divertido e memorável; dá vontade de clicar em tudo</li>
+        <li class="pro">Easter eggs fáceis: lixeira, Paint, um campo minado, tela azul</li>
+        <li class="con">Pode passar uma imagem menos séria para quem procura o CEO</li>
+        <li class="con">Fica longe da estética do Fervo, que é moderna</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="plate" aria-labelledby="c">
+    <div class="plate-head"><h2 id="c">C · Híbrido "RizziOS"</h2><span class="tag rec">minha recomendação</span></div>
+    <figure>
+      <div class="screen sC" role="img" aria-label="Prévia híbrida: fundo claro quadriculado, barra de menu escura com fonte pixelada e logo RizziOS amarelo, janela branca com borda grossa e sombra dura, barra de título amarela, e dock com ícones coloridos de borda grossa.">
+        <div class="menubar"><span class="logo">RizziOS</span><span>Arquivo</span><span>Projetos</span><span>Contato</span><span class="right">14:32</span></div>
+        <div class="win">
+          <div class="bar"><div class="dots"><i></i><i></i><i></i></div><span>sobre.txt</span></div>
+          <div class="body">
+            <h3>Gabriel Rizzi</h3>
+            <p>CEO do Fervo. Fullstack &amp; Mobile, formado em Sistemas de Informação pela UTFPR.</p>
+            <div class="chips"><span>React</span><span>React Native</span><span>Vue</span><span>Node</span><span>WCAG</span></div>
+          </div>
+        </div>
+        <div class="dock"><i>F</i><i>?</i><i>&lt;/&gt;</i><i>♿</i><i>@</i></div>
+      </div>
+      <figcaption>Estrutura moderna (barra de menu e dock) com detalhes retrô: fonte pixelada, bordas grossas, sombra dura.</figcaption>
+    </figure>
+    <div class="notes">
+      <p class="label">Prós e riscos</p>
+      <ul>
+        <li class="pro">Não é cópia de nenhum sistema; é um sistema seu</li>
+        <li class="pro">Tem a usabilidade moderna e o charme da nostalgia</li>
+        <li class="pro">Contraste alto por natureza, fácil de deixar AA</li>
+        <li class="con">Exige mais decisões de design próprias (ícones, sons, cores)</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="plate" aria-labelledby="m">
+    <div class="plate-head"><h2 id="m">No celular</h2></div>
+    <figure>
+      <div class="phones" role="img" aria-label="Três celulares lado a lado, um para cada estilo, cada um mostrando uma grade de ícones como tela inicial.">
+        <div class="phone a"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="phone b"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="phone c"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      </div>
+      <figcaption>Em qualquer estilo, no celular as janelas viram "apps" em tela cheia.</figcaption>
+    </figure>
+    <div class="notes">
+      <p>No celular, as janelas arrastáveis viram uma tela inicial de smartphone do mesmo sistema. Cada ícone abre a seção em tela cheia, com botão de voltar. O moderno e o híbrido se adaptam melhor; o nostálgico precisa de um "Windows Mobile" inventado.</p>
+    </div>
+  </section>
+
+  <aside class="verdict" aria-labelledby="v">
+    <h2 id="v">Minha recomendação: o híbrido</h2>
+    <p>O moderno é atual, mas muitos portfólios já imitam o macOS e você quer justamente fugir do que parece genérico. O nostálgico é divertido, mas brinca demais para quem também apresenta o Fervo como CEO.</p>
+    <p>O híbrido pega a estrutura moderna, que todo mundo sabe usar, e coloca a nostalgia nos detalhes: fonte pixelada, bordas grossas, sons de clique e easter eggs. O resultado parece um sistema operacional que só existe no rizzi.dev.</p>
+  </aside>
+</div>

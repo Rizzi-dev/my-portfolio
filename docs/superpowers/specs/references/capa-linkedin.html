@@ -1,0 +1,257 @@
+<title>Capas LinkedIn Rizzi</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,800&family=IBM+Plex+Mono:wght@400;600&family=Inter:wght@400;600;800&family=VT323&display=swap">
+<style>
+/* Layout: a single export screen — title, the live 4:1 canvas (what you see is the file), options, download buttons, then upload tips. */
+:root {
+  --bg: #f3f4f7; --surface: #ffffff; --fg: #171a24; --muted: #5a6072; --line: #d9dce5;
+  --accent: #15172a; --accent-fg: #ffffff; --yellow: #ffd23f; --good: #1f7a4d; --bad: #b42318;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --bg: #11131a; --surface: #191c26; --fg: #eceef4; --muted: #a3a9ba; --line: #2c3040; --accent: #ffd23f; --accent-fg: #15172a; --good: #6fd3a0; --bad: #ff8a80; color-scheme: dark; }
+}
+:root[data-theme="dark"] { --bg: #11131a; --surface: #191c26; --fg: #eceef4; --muted: #a3a9ba; --line: #2c3040; --accent: #ffd23f; --accent-fg: #15172a; --good: #6fd3a0; --bad: #ff8a80; color-scheme: dark; }
+
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 17px; line-height: 1.6; }
+.wrap { max-width: 1120px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 40px 72px; display: grid; gap: 28px; }
+.kicker { font-family: var(--font-mono); font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 0; }
+h1 { font-family: var(--font-display); font-weight: 800; font-size: clamp(30px, 4.5vw, 48px); line-height: 1.05; margin: 0; letter-spacing: -.02em; text-wrap: balance; }
+h2 { font-family: var(--font-display); font-weight: 800; font-size: 22px; margin: 0; }
+p { margin: 0; }
+.head { display: grid; gap: 10px; max-width: 70ch; }
+.lede { color: var(--muted); font-size: 18px; }
+
+.stage { display: grid; gap: 10px; min-width: 0; }
+canvas { display: block; width: 100%; max-width: 100%; height: auto; aspect-ratio: 4 / 1; border-radius: 4px; box-shadow: 0 0 0 1px var(--line); background: #f1ede4; }
+.meta { font-family: var(--font-mono); font-size: 13px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 4px 16px; }
+
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 20px; display: grid; gap: 18px; }
+.opts { display: flex; flex-wrap: wrap; gap: 10px 28px; }
+.opts label { display: inline-flex; align-items: center; gap: 10px; cursor: pointer; }
+.opts input { width: 18px; height: 18px; accent-color: #15172a; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+button.dl { font: 700 16px/1.2 var(--font-body); background: var(--accent); color: var(--accent-fg); border: 2px solid var(--accent); border-radius: 8px; padding: 12px 18px; cursor: pointer; box-shadow: 4px 4px 0 var(--yellow); }
+button.dl.alt { background: transparent; color: var(--fg); border-color: var(--fg); box-shadow: 4px 4px 0 var(--line); }
+button.dl:hover { transform: translate(-1px, -1px); }
+button.dl:focus-visible, .opts input:focus-visible { outline: 3px solid #3448d6; outline-offset: 3px; }
+button.dl[disabled] { opacity: .5; cursor: not-allowed; transform: none; }
+button.dl small { display: block; font-weight: 400; font-size: 13px; opacity: .85; }
+.status { font-size: 15px; min-height: 1.6em; }
+.status.ok { color: var(--good); } .status.err { color: var(--bad); }
+
+.tips { display: grid; gap: 10px; max-width: 78ch; }
+.tips ol { margin: 0; padding-left: 22px; display: grid; gap: 6px; }
+@media (prefers-reduced-motion: reduce) { button.dl:hover { transform: none; } }
+</style>
+
+<div class="wrap">
+  <header class="head">
+    <p class="kicker">LinkedIn · capa · RizziOS</p>
+    <h1>Capa Desktop RizziOS</h1>
+    <p class="lede">A prévia abaixo é o próprio arquivo: o que aparece aqui é exatamente o que você baixa.</p>
+  </header>
+
+  <section class="stage" aria-label="Prévia da capa">
+    <canvas id="preview" width="1584" height="396" role="img" aria-label="Capa clara quadriculada com barra de menu RizziOS, uma janela sobre.txt com o nome Gabriel Rizzi, os cargos Desenvolvedor Fullstack e Mobile e Co-Founder e CEO no Fervo, chips de tecnologias, e três ícones à direita."></canvas>
+    <div class="meta"><span>1584 × 396 px (tamanho oficial do LinkedIn)</span><span>PNG</span><span>proporção 4:1</span></div>
+  </section>
+
+  <section class="panel" aria-labelledby="optsTitle">
+    <h2 id="optsTitle">Opções</h2>
+    <div class="opts">
+      <label for="optZones"><input type="checkbox" id="optZones"> Mostrar onde a foto e o corte do celular cobrem a capa <span style="color:var(--muted)">(só na prévia)</span></label>
+      <label for="optDomain"><input type="checkbox" id="optDomain" checked> Mostrar "rizzi.dev" na barra de menu</label>
+    </div>
+    <div class="actions">
+      <button class="dl" id="dl2x" type="button">Baixar PNG em alta <small>3168 × 792 · recomendado</small></button>
+      <button class="dl alt" id="dl1x" type="button">Baixar PNG padrão <small>1584 × 396</small></button>
+    </div>
+    <p class="status" id="status" role="status" aria-live="polite"></p>
+  </section>
+
+  <section class="tips" aria-labelledby="tipsTitle">
+    <h2 id="tipsTitle">Como trocar no LinkedIn</h2>
+    <ol>
+      <li>Abra o seu perfil e clique no ícone de lápis no canto superior direito da capa.</li>
+      <li>Escolha "Alterar foto" e envie o PNG. A versão em alta fica mais nítida em telas Retina e continua abaixo do limite de 8 MB.</li>
+      <li>Se o LinkedIn pedir para recortar, mantenha o enquadramento inteiro: o arquivo já está na proporção certa.</li>
+      <li>Se o rizzi.dev ainda não estiver no ar, desmarque a opção acima antes de baixar.</li>
+    </ol>
+  </section>
+</div>
+
+<script>
+(function () {
+  var W = 1584, H = 396;
+  var C = { ink: "#15172a", paper: "#f1ede4", yellow: "#ffd23f", sky: "#7fe0ff", mint: "#9df0b8", pink: "#ff9fcb", white: "#ffffff" };
+  var preview = document.getElementById("preview");
+  var optZones = document.getElementById("optZones");
+  var optDomain = document.getElementById("optDomain");
+  var statusEl = document.getElementById("status");
+  var btn1 = document.getElementById("dl1x");
+  var btn2 = document.getElementById("dl2x");
+
+  function rr(ctx, x, y, w, h, r) {
+    ctx.beginPath();
+    if (ctx.roundRect) { ctx.roundRect(x, y, w, h, r); return; }
+    ctx.moveTo(x + r, y); ctx.arcTo(x + w, y, x + w, y + h, r); ctx.arcTo(x + w, y + h, x, y + h, r);
+    ctx.arcTo(x, y + h, x, y, r); ctx.arcTo(x, y, x + w, y, r); ctx.closePath();
+  }
+  function boxWithShadow(ctx, x, y, w, h, r, fill, border, shadow) {
+    ctx.fillStyle = C.ink; rr(ctx, x + shadow, y + shadow, w, h, r); ctx.fill();
+    ctx.fillStyle = fill; rr(ctx, x, y, w, h, r); ctx.fill();
+    ctx.lineWidth = border; ctx.strokeStyle = C.ink; rr(ctx, x, y, w, h, r); ctx.stroke();
+  }
+
+  function draw(ctx, opts) {
+    ctx.clearRect(0, 0, W, H);
+    ctx.textBaseline = "alphabetic";
+
+    // paper + grid
+    ctx.fillStyle = C.paper; ctx.fillRect(0, 0, W, H);
+    ctx.strokeStyle = "rgba(21,23,42,0.07)"; ctx.lineWidth = 1;
+    for (var gx = 0; gx <= W; gx += 38) { ctx.beginPath(); ctx.moveTo(gx + .5, 0); ctx.lineTo(gx + .5, H); ctx.stroke(); }
+    for (var gy = 0; gy <= H; gy += 38) { ctx.beginPath(); ctx.moveTo(0, gy + .5); ctx.lineTo(W, gy + .5); ctx.stroke(); }
+
+    // menu bar
+    var mb = 42;
+    ctx.fillStyle = C.ink; ctx.fillRect(0, 0, W, mb);
+    ctx.font = '30px "VT323", monospace';
+    var x = 22, base = 30;
+    var logoW = ctx.measureText("RizziOS").width + 18;
+    ctx.fillStyle = C.yellow; ctx.fillRect(x, 7, logoW, mb - 14);
+    ctx.fillStyle = C.ink; ctx.fillText("RizziOS", x + 9, base);
+    x += logoW + 30;
+    ctx.fillStyle = C.paper;
+    ["Arquivo", "Projetos", "Contato"].forEach(function (t) { ctx.fillText(t, x, base); x += ctx.measureText(t).width + 30; });
+    if (opts.domain) { var dw = ctx.measureText("rizzi.dev").width; ctx.fillText("rizzi.dev", W - 24 - dw, base); }
+
+    // window
+    var wx = 665, wy = 88, ww = 697, wh = 262, wr = 16;
+    boxWithShadow(ctx, wx, wy, ww, wh, wr, C.white, 4, 11);
+    // title bar
+    var bh = 44;
+    ctx.save(); rr(ctx, wx, wy, ww, wh, wr); ctx.clip();
+    ctx.fillStyle = C.yellow; ctx.fillRect(wx, wy, ww, bh);
+    ctx.restore();
+    ctx.lineWidth = 4; ctx.strokeStyle = C.ink;
+    ctx.beginPath(); ctx.moveTo(wx, wy + bh); ctx.lineTo(wx + ww, wy + bh); ctx.stroke();
+    rr(ctx, wx, wy, ww, wh, wr); ctx.stroke();
+    for (var d = 0; d < 3; d++) {
+      ctx.beginPath(); ctx.arc(wx + 26 + d * 26, wy + bh / 2, 8, 0, Math.PI * 2);
+      ctx.fillStyle = C.white; ctx.fill(); ctx.lineWidth = 3; ctx.stroke();
+    }
+    ctx.fillStyle = C.ink; ctx.font = '30px "VT323", monospace';
+    ctx.fillText("sobre.txt", wx + 112, wy + 31);
+
+    // window body
+    var px = wx + 28, py = wy + bh;
+    ctx.fillStyle = C.ink;
+    ctx.font = '800 54px "Inter", system-ui, sans-serif';
+    if ("letterSpacing" in ctx) ctx.letterSpacing = "-1.5px";
+    ctx.fillText("Gabriel Rizzi", px, py + 70);
+    if ("letterSpacing" in ctx) ctx.letterSpacing = "0px";
+    ctx.font = '400 25px "Inter", system-ui, sans-serif';
+    ctx.fillText("Desenvolvedor Fullstack & Mobile", px, py + 112);
+    ctx.fillText("Co-Founder & CEO @ Fervo", px, py + 145);
+
+    // chips
+    var chips = [["React", C.sky], ["React Native", C.mint], ["Vue", C.white], ["Node.js", C.white], ["WCAG", C.pink]];
+    var cx = px, cy = py + 168, ch = 36;
+    ctx.font = '600 19px "Inter", system-ui, sans-serif';
+    chips.forEach(function (c) {
+      var cw = ctx.measureText(c[0]).width + 26;
+      ctx.fillStyle = c[1]; rr(ctx, cx, cy, cw, ch, 8); ctx.fill();
+      ctx.lineWidth = 3; ctx.strokeStyle = C.ink; rr(ctx, cx, cy, cw, ch, 8); ctx.stroke();
+      ctx.fillStyle = C.ink; ctx.fillText(c[0], cx + 13, cy + 25);
+      cx += cw + 10;
+    });
+
+    // desktop icons (right column)
+    var icons = [["fervo", C.yellow], ["stack", C.sky], ["wcag", C.pink]];
+    var ix = W - 32 - 64, iy = 70;
+    ctx.font = '26px "VT323", monospace'; ctx.textAlign = "center";
+    icons.forEach(function (ic) {
+      boxWithShadow(ctx, ix, iy, 64, 64, 13, ic[1], 3, 5);
+      ctx.fillStyle = C.ink; ctx.fillText(ic[0], ix + 32, iy + 90);
+      iy += 98;
+    });
+    ctx.textAlign = "left";
+
+    if (opts.zones) {
+      // mobile side crops
+      ctx.fillStyle = "rgba(0,0,0,0.16)";
+      ctx.fillRect(0, 0, 190, H); ctx.fillRect(W - 190, 0, 190, H);
+      // profile photo (desktop): circle overlapping lower-left
+      ctx.beginPath(); ctx.arc(57 + 111, H + 18, 111, 0, Math.PI * 2);
+      ctx.fillStyle = "rgba(255,0,90,0.28)"; ctx.fill();
+      ctx.setLineDash([10, 8]); ctx.lineWidth = 4; ctx.strokeStyle = "#ff005a"; ctx.stroke(); ctx.setLineDash([]);
+      ctx.font = '600 18px "IBM Plex Mono", monospace';
+      ctx.fillStyle = "#ff005a"; ctx.fillRect(200, H - 40, 190, 30);
+      ctx.fillStyle = "#fff"; ctx.fillText("foto do perfil", 212, H - 19);
+      ctx.fillStyle = "rgba(0,0,0,0.6)"; ctx.fillRect(W - 360, H - 40, 160, 30);
+      ctx.fillStyle = "#fff"; ctx.fillText("corte celular", W - 350, H - 19);
+    }
+  }
+
+  function renderPreview() {
+    var ctx = preview.getContext("2d");
+    draw(ctx, { zones: optZones.checked, domain: optDomain.checked });
+  }
+
+  function makeBlob(scale) {
+    return new Promise(function (resolve, reject) {
+      var c = document.createElement("canvas");
+      c.width = W * scale; c.height = H * scale;
+      var ctx = c.getContext("2d");
+      ctx.scale(scale, scale);
+      draw(ctx, { zones: false, domain: optDomain.checked });
+      c.toBlob(function (b) { b ? resolve(b) : reject(new Error("blob")); }, "image/png");
+    });
+  }
+
+  function setStatus(msg, kind) { statusEl.textContent = msg; statusEl.className = "status" + (kind ? " " + kind : ""); }
+
+  var downloadsPromise = (window.claude && window.claude.use) ? window.claude.use("downloads") : Promise.resolve(null);
+
+  function hookButton(btn, scale, name) {
+    btn.addEventListener("click", async function () {
+      var downloads = await downloadsPromise;
+      if (!downloads) { setStatus("O download não está disponível nesta visualização. Abra a página no claude.ai ou peça o arquivo no chat.", "err"); return; }
+      btn.disabled = true; setStatus("Gerando o PNG…");
+      try {
+        var blob = await makeBlob(scale);
+        await downloads.save({ filename: name, data: blob });
+        setStatus("Arquivo salvo: " + name, "ok");
+      } catch (e) {
+        var code = e && e.code;
+        if (code === "declined") setStatus("Download cancelado.", "");
+        else if (code === "rate_limited") setStatus("Já existe um download aguardando confirmação. Conclua ou feche-o e tente de novo.", "err");
+        else setStatus("Não foi possível baixar aqui. Peça o arquivo no chat que eu gero na sua máquina.", "err");
+      } finally { btn.disabled = false; }
+    });
+  }
+  hookButton(btn2, 2, "capa-linkedin-rizzi@2x.png");
+  hookButton(btn1, 1, "capa-linkedin-rizzi.png");
+
+  downloadsPromise.then(function (d) {
+    if (!d) { btn1.disabled = true; btn2.disabled = true; setStatus("O download não está disponível nesta visualização. Abra a página no claude.ai ou peça o arquivo no chat.", "err"); }
+  });
+
+  optZones.addEventListener("change", renderPreview);
+  optDomain.addEventListener("change", renderPreview);
+
+  renderPreview();
+  var fontLoads = [
+    '30px "VT323"', '800 54px "Inter"', '400 25px "Inter"', '600 19px "Inter"', '600 18px "IBM Plex Mono"'
+  ].map(function (f) { return document.fonts ? document.fonts.load(f) : Promise.resolve(); });
+  Promise.all(fontLoads).then(renderPreview, renderPreview);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(renderPreview);
+})();
+</script>
