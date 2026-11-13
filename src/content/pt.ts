@@ -67,20 +67,52 @@ export const pt: SiteContent = {
       blocks: [
         {
           type: 'p',
-          text: 'Plataforma SaaS de gestão de entidades acadêmicas, eventos e venda de ingressos.',
-        },
-        {
-          type: 'list',
-          items: [
-            'Compra online com Mercado Pago',
-            'Ingresso com QR code',
-            'Venda presencial com Pix',
-            'App mobile',
-          ],
+          text: 'Plataforma SaaS para atléticas e entidades acadêmicas: venda de ingressos, gestão de eventos e gestão de sócios em um só lugar.',
         },
         {
           type: 'p',
           text: 'Papel: Co-Founder & CEO, atuando da concepção do produto à arquitetura e ao desenvolvimento.',
+        },
+        { type: 'heading', text: 'Para quem compra' },
+        {
+          type: 'list',
+          items: [
+            'Compra online com Mercado Pago (Pix e cartão) e disponibilidade dos lotes em tempo real',
+            'Ingresso com QR code e carteirinha digital de sócio',
+            'Login com Google ou e-mail',
+          ],
+        },
+        { type: 'heading', text: 'Para quem organiza' },
+        {
+          type: 'list',
+          items: [
+            'Criação de evento em 3 etapas, com prévia ao vivo',
+            'Lotes encadeados, cupons e taxa de serviço configurável',
+            'Venda presencial pelo promoter: Pix, cartão por link, cortesia e dinheiro',
+            'Validação de ingressos na entrada pela câmera',
+            'Calculadora de custos do evento, com lista de compras e ponto de equilíbrio',
+            'Painel financeiro com extrato, exportação em CSV e saque com 2FA',
+          ],
+        },
+        { type: 'heading', text: 'Para a entidade' },
+        {
+          type: 'list',
+          items: [
+            'Página pública com eventos, planos, produtos e esportes',
+            'Sócios com adesão e renovação online',
+            'Esportes: modalidades, atletas, agenda de treinos com chamada e conferência de documentos',
+            'Vários administradores com permissões e transferência de propriedade',
+          ],
+        },
+        { type: 'heading', text: 'Engenharia' },
+        {
+          type: 'list',
+          items: [
+            'Web, API, app mobile (iOS e Android) e backoffice em repositórios separados, com ADRs próprios',
+            'Spec-Driven Development: spec e task antes do código',
+            'Acessibilidade WCAG 2.1 AA, CSP/HSTS, reCAPTCHA v3, SEO e GA4',
+            'Deploy contínuo na Cloudflare Pages, com staging aberto para testes',
+          ],
         },
         { type: 'heading', text: 'Stack' },
         {
@@ -91,10 +123,14 @@ export const pt: SiteContent = {
             'TypeScript',
             'Vite',
             'Tailwind',
+            'shadcn/ui',
+            'React Hook Form + Zod',
             'Fastify',
             'Prisma',
             'Supabase',
             'Mercado Pago',
+            'Resend',
+            'Cloudflare Pages',
           ],
         },
         {
@@ -146,7 +182,7 @@ export const pt: SiteContent = {
           entries: [
             {
               period: '2025–atual',
-              role: 'Desenvolvedor Fullstack Pleno e Mobile',
+              role: 'Desenvolvedor Fullstack e Mobile',
               org: 'HUMU',
               text: 'Atuação no desenvolvimento e evolução de produtos digitais para o setor financeiro, trabalhando em aplicações web, serviços backend e aplicações mobile.',
             },

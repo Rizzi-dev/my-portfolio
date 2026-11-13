@@ -68,20 +68,52 @@ export const en: SiteContent = {
       blocks: [
         {
           type: 'p',
-          text: 'SaaS platform for managing academic organizations, events and ticket sales.',
-        },
-        {
-          type: 'list',
-          items: [
-            'Online purchase with Mercado Pago',
-            'Ticket with QR code',
-            'In-person sales with Pix',
-            'Mobile app',
-          ],
+          text: 'SaaS platform for university athletic associations and student organizations: ticket sales, event management and membership management in one place.',
         },
         {
           type: 'p',
           text: 'Role: Co-Founder & CEO, working from product concept to architecture and development.',
+        },
+        { type: 'heading', text: 'For buyers' },
+        {
+          type: 'list',
+          items: [
+            'Online checkout with Mercado Pago (Pix and card) and real-time ticket availability',
+            'QR code tickets and digital membership card',
+            'Sign in with Google or email',
+          ],
+        },
+        { type: 'heading', text: 'For organizers' },
+        {
+          type: 'list',
+          items: [
+            '3-step event creation with live preview',
+            'Chained ticket batches, coupons and configurable service fee',
+            'In-person sales by promoters: Pix, card via link, complimentary and cash',
+            'Ticket check-in at the door with the camera',
+            'Event cost calculator with shopping list and break-even point',
+            'Financial dashboard with statement, CSV export and 2FA-protected payouts',
+          ],
+        },
+        { type: 'heading', text: 'For organizations' },
+        {
+          type: 'list',
+          items: [
+            'Public page with events, membership plans, products and sports',
+            'Online membership sign-up and renewal',
+            'Sports: teams, athletes, training schedule with attendance and document review',
+            'Multiple admins with permissions and ownership transfer',
+          ],
+        },
+        { type: 'heading', text: 'Engineering' },
+        {
+          type: 'list',
+          items: [
+            'Web, API, mobile app (iOS and Android) and back office in separate repositories, each with its own ADRs',
+            'Spec-Driven Development: spec and task before code',
+            'WCAG 2.1 AA accessibility, CSP/HSTS, reCAPTCHA v3, SEO and GA4',
+            'Continuous deployment on Cloudflare Pages, with an open staging environment',
+          ],
         },
         { type: 'heading', text: 'Stack' },
         {
@@ -92,10 +124,14 @@ export const en: SiteContent = {
             'TypeScript',
             'Vite',
             'Tailwind',
+            'shadcn/ui',
+            'React Hook Form + Zod',
             'Fastify',
             'Prisma',
             'Supabase',
             'Mercado Pago',
+            'Resend',
+            'Cloudflare Pages',
           ],
         },
         {
@@ -147,7 +183,7 @@ export const en: SiteContent = {
           entries: [
             {
               period: '2025–present',
-              role: 'Mid-level Fullstack and Mobile Developer',
+              role: 'Fullstack and Mobile Developer',
               org: 'HUMU',
               text: 'Development and evolution of digital products for the financial sector, working on web applications, backend services and mobile applications.',
             },
